@@ -12,7 +12,7 @@ source:
   sha256: 37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3
 
 build:
-  number: 6
+  number: 7
 
 outputs:
   - package:
@@ -101,10 +101,10 @@ outputs:
             exists:
               - if: unix
                 then:
-                - lib/libzstd.a
+                  - lib/libzstd.a
               - if: win
                 then:
-                - Library/lib/zstd_static.lib
+                  - Library/lib/zstd_static.lib
       - script:
           - zstd -be -i5
       - files:
