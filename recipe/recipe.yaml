@@ -63,9 +63,10 @@ outputs:
         requirements:
           run:
             - ${{ compiler('c') }}
-            - cmake
-            - if: unix
-              then: make
+            - if: unix and (build_platform == target_platform)
+              then:
+                - cmake
+                - make
             - pkg-config
         script:
           - if: unix
@@ -114,9 +115,10 @@ outputs:
           run:
             - ${{ compiler('c') }}
             - ${{ stdlib('c') }}
-            - cmake
-            - if: unix
-              then: make
+            - if: unix and (build_platform == target_platform)
+              then:
+                - cmake
+                - make
             - pkg-config
         script:
           - if: unix
